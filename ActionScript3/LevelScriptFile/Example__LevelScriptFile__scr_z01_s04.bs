@@ -1,0 +1,419 @@
+// BBM - ZONE I - SCENE IV - RESCUE THE DOC (FORTRESS)
+//
+// WINNING THIS MISSION WILL UNLOCK THE DOC
+
+vars
+{
+	// FLAGS
+	shallShowIntro = false;
+	alarmCaused    = false;
+	sneakedIn      = false;
+	
+	// POSITIONS
+	pos_cam_start  = $pos_ent;
+	pos_cam_doc    = $pos_ent;
+	pos_gate1      = $pos_ent;
+	pos_secretWall = $pos_ent;
+	pos_jailer_1   = $pos_ent;
+	
+	// CHARACTERS
+	tempChar   = null;
+	chr_jailer = null;
+	chr_doc    = $ent;
+	
+	// PROPS
+	usedThing = null;
+	lever_1   = $ent;
+	lever_2   = $ent;
+	pc_1      = $ent;
+	pc_2      = $ent;
+	gate1_dr1 = $ent;
+	gate1_dr2 = $ent;
+	cellDoor  = $ent;
+	labDoor   = $ent;
+	secretWall = $ent;
+	securityDoor = $ent;
+	
+	// ITEMS
+	bigLoot   = $ent;
+	
+	reg_gate1 = $region;
+	reg_gate2 = $region;
+	
+	// QUESTS
+	quest_enter   = "Q_EnterFortress";
+	quest_rescue  = "Q_RescueDoc";
+	quest_bigLoot = "Q_BigLoot";
+}
+
+triggers
+{
+	Init
+	{
+		meta { active=true,  once=true }    events { game.gameStart } 
+		
+		actions
+		{
+			shallShowIntro = game.shallShowIntro() != controls.DEBUG_A;
+			
+			gui.hide();
+			controls.disable();
+			spawnPhase.setSettings("auto");
+			camera.gotoSpot(pos_cam_start);
+			
+			entity.deactivate(chr_doc);
+			
+			regions.startObserving(reg_gate1);
+			regions.startObserving(reg_gate2);
+			
+			chr_jailer = entity.getCharAtPos("sp3");
+			entity.hide(securityDoor);
+			
+			audio.playMusic("sneaky", true);
+		}
+	}
+	
+	OnSpawnedToEnd
+	{
+		meta { active=true, once=true }   events { game.spawnPhaseEnded }
+		actions
+		{
+			triggers.runEitherOr(shallShowIntro, "A_ShowIntro", "B_StartBattle");
+		}
+	}
+	
+	A_ShowIntro
+	{
+		actions
+		{
+			// audio.stopMusic();
+			
+			wait(500);
+			
+			game.showLevelDescription();
+			wait(300);
+			
+			// audio.playMusic("intro_1");
+			
+			camera.moveTo(pos_cam_doc, 1000);
+			wait(1300);
+			
+			gfx.hl(chr_doc, gfx.genTitleFX(chr_doc, "0x80C1F7", "title_doc"));
+			gui.showDialog("dial_a_doc", chr_doc, 350, 104);
+			wait(500);
+			
+			
+			gfx.clear(chr_doc);
+			cam.moveTo(pc_2,400);
+			wait(500);
+			
+			gfx.showMessageAt(pc_2, "title_examine", "white"));
+			wait(500);
+			gui.showDialog("dial_a_pc", mainPlayer.getRandomCrewMember(), 200, 10);
+			wait(300);
+			
+			gfx.clear(pc_2);
+			
+			gui.showDialog("dial_a_fortress", mainPlayer.getRandomCrewMember(), 200, 10, false);
+			camera.moveTo(pos_gate1, 1700);
+			wait(2000);
+			gui.allowConfirmForCurrentDialog();
+			wait(100);
+			
+			gui.closeDialogBoxes();
+			wait(100);
+			
+			camera.moveTo(pos_cam_start, 1111);
+			wait(1400);
+			
+			gui.showDialog("dial_hint", null, 350, 104);
+			wait(300);
+			
+			triggers.run("B_StartBattle");
+		}
+	}
+	
+	B_StartBattle
+	{
+		actions
+		{
+			battlePhase.start();
+			gui.show();
+			// audio.playMusic("ingame");
+			
+			// prepare some entities
+			entity.setUsable(lever_1, true);
+			entity.setUsable(lever_2, true);
+			entity.setUsable(pc_1, true);
+			entity.setUsable(pc_2, true);
+			
+			gfx.showMessageAt(lever_1, "title_examine", "white"));
+			gfx.showMessageAt(lever_2, "title_examine", "white"));
+			
+			wait(500);
+			controls.enable();
+			mission.addQuest(quest_enter);
+			
+			wait(500);
+			mission.addQuest(quest_rescue);
+			
+			wait(500);
+			mission.addQuest(quest_bigLoot);
+		}
+	}
+	
+	
+	CheckEnteringRegion_Gate1
+	{
+		meta { active=true, once=true }   events { world.regionEntered }
+		conditions { players.isInTeam(events.relatedEntity, 0) && events.relatedRegion == reg_gate1 }
+		actions
+		{
+			mission.fulfillQuest(quest_enter, true);
+			tempChar = events.relatedEntity;
+			regions.stopObserving(reg_gate1);
+			
+			if(sneakedIn)
+			{
+				return;
+			}
+			
+			alarmCaused = true;
+			
+			actions.abortCurrent(events.relatedEntity);
+			
+			cinematic.start();
+			wait(300);
+			
+			cam.moveTo(chr_jailer, 600);
+			wait(800);
+			
+			entity.faceTo(chr_jailer, tempChar);
+			wait(600);
+			
+			gui.showDialog("dial_jailer", chr_jailer, 350, 104);
+			wait(300);
+			
+			actions.walkTo(chr_jailer, pos_jailer_1);
+			wait(400);
+			entity.faceTo(chr_jailer, pc_2);
+			
+			wait(400);
+			entity.show(securityDoor);
+			wait(200);
+			gui.showFlyingText("TAaawushhh!", securityDoor, "yellow");
+			audio.playSound("metal_close");
+			wait(700);
+			
+			gui.showDialog("dial_jailer_1", chr_jailer, 350, 104);
+			wait(300);
+			
+			
+			cam.moveTo(tempChar, 600);
+			wait(800);
+			gui.showDialog("dial_detour", tempChar, 350, 104);
+			
+			wait(500);
+			entity.faceTo(tempChar, pc_1);
+			wait(300);
+			gfx.showMessageAt(pc_1, "title_examine", "white"));
+			wait(1000);
+			cinematic.end();
+			
+			wait(1000);
+			gfx.clear(pc_1);
+			
+			return;
+		}
+	}
+	
+	CheckEnteringRegion_Gate2
+	{
+		meta { active=true, once=true }   events { world.regionEntered }
+		conditions { players.isInTeam(events.relatedEntity, 0) && events.relatedRegion == reg_gate2 }
+		actions
+		{
+			mission.fulfillQuest(quest_enter);
+			
+			regions.stopObserving(reg_gate1);
+			regions.stopObserving(reg_gate2);
+			
+			sneakedIn = true;
+			
+			if(!alarmCaused)
+			{
+				entity.remove(securityDoor);
+			}
+			return;
+		}
+	}
+	
+	
+	CheckUseOfLever_1
+	{
+		meta { active=true, once=true }  events { world.entityUsed }
+		conditions { events.lastEntityUsed == lever_1 }
+		
+		actions
+		{
+			log("CheckUseOfLever_1");
+			tempChar = events.relatedEntity;
+			usedThing = events.lastEntityUsed;
+			
+			gfx.clear(usedThing);
+			
+			gui.showFlyingText("KRrrrkk!", usedThing, "yellow");
+			entity.setUsable(usedThing, false);
+			
+			cinematic.start();
+			wait(500);
+			
+			cam.moveTo(pos_gate1, 500);
+			wait(900);
+			audio.playSound("metal_open");
+			gui.showFlyingText("RATCH!", gate1_dr1, "yellow");
+			entity.remove(gate1_dr1);
+			wait(500);
+			audio.playSound("metal_open");
+			gui.showFlyingText("CLANG!", gate1_dr2, "yellow");
+			entity.remove(gate1_dr2);
+			wait(900);
+			
+			cam.moveTo(tempChar, 400);
+			wait(400);
+			
+			cinematic.end();
+		}
+	}
+	
+	
+	CheckUseOfLever_2
+	{
+		meta { active=true, once=true }  events { world.entityUsed }
+		conditions { events.lastEntityUsed == lever_2 }
+		
+		actions
+		{
+			log("CheckUseOfLever_2");
+			tempChar = events.relatedEntity;
+			usedThing = events.lastEntityUsed;
+			
+			gfx.clear(usedThing);
+			
+			gui.showFlyingText("KWwwirkkl!", usedThing, "yellow");
+			entity.setUsable(usedThing, false);
+			
+			cinematic.start();
+			wait(500);
+			
+			cam.moveTo(pos_secretWall, 500);
+			wait(900);
+			gui.showFlyingText("RRruummble!", secretWall, "yellow");
+			audio.playSound("rumble_rock");
+			entity.remove(secretWall);
+			wait(900);
+			
+			gui.showDialog("dial_lever_2", tempChar, 350, 104);
+			wait(100);
+			
+			cam.moveTo(tempChar, 400);
+			wait(400);
+			
+			cinematic.end();
+			
+		}
+	}
+	
+	CheckUseOfPC_1
+	{
+		meta { active=true, once=true }  events { world.entityUsed }
+		conditions { events.lastEntityUsed == pc_1 }
+		
+		actions
+		{
+			log("CheckUseOfPC_1");
+			tempChar = events.relatedEntity;
+			usedThing = events.lastEntityUsed;
+			
+			gfx.clear(usedThing);
+			
+			entity.setUsable(usedThing, false);
+			
+			cinematic.start();
+			wait(500);
+			cam.moveTo(cellDoor, 100);
+			
+			gui.showFlyingText("BLEEP!", usedThing, "yellow");
+			wait(500);
+			
+			wait(200);
+			
+			gui.showFlyingText("Quiiekk!", cellDoor, "yellow");
+			audio.playSound("metal_open");
+			entity.remove(cellDoor);
+			wait(450);
+			entity.faceTo(tempChar, bigLoot);
+			wait(450);
+			
+			cinematic.end();
+		}
+	}
+	
+	CheckUseOfPC_2
+	{
+		meta { active=true, once=true }  events { world.entityUsed }
+		conditions { events.lastEntityUsed == pc_2 }
+		
+		actions
+		{
+			log("CheckUseOfPC_2");
+			// triggers.deactivate("CheckUseOfPC_2");
+			
+			tempChar = events.relatedEntity;
+			usedThing = events.lastEntityUsed;
+			
+			gfx.clear(usedThing);
+			
+			gui.showFlyingText("Hack!", usedThing, "yellow");
+			entity.setUsable(usedThing, false);
+			
+			cinematic.start();
+			wait(500);
+			entity.faceTo(tempChar, labDoor);
+			audio.fadeOutMusic();
+			wait(500);
+			
+			cam.moveTo(labDoor, 500);
+			wait(900);
+			
+			gui.showFlyingText("Ttttwuuiiith!", labDoor, "yellow");
+			audio.playSound("metal_close");
+			entity.remove(labDoor);
+			// audio.playMusic("strange");
+			wait(400);
+			gfx.clear(chr_doc);
+			wait(500);
+			gui.showDialog("dial_docFreed", chr_doc, 350, 104);
+			wait(100);
+			
+			gui.show();
+			mission.fulfillQuest(quest_rescue);
+			wait(900);
+			game.win();
+		}
+	}
+	
+	
+	CheckLootPickedUp
+	{
+		meta   { active=true, once=true }	events { world.itemPickedUp }
+		conditions { events.lastItemPickedUp == bigLoot }
+		
+		actions
+		{
+			mission.fulfillQuest(quest_bigLoot, true);
+		}
+	}
+	
+	
+}

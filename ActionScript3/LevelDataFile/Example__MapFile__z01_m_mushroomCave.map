@@ -1,0 +1,261 @@
+title  = 'z01_m_mushroomCave'
+
+tilesX = 30
+tilesY = 30
+
+bgID = slimo01
+
+tiles
+[
+	'000000000000000000000000077700'
+	'000000000000000000000000777700'
+	'000000000000000000000000770000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000077'
+	'000000000000000000000000000077'
+	'000000000000000000000000000070'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000000'
+	'000000000000000000000000000770'
+	'007000000000000000000000000770'
+	'077000000000000000000000000770'
+	'770000000000000000000000000000'
+	'700007000000000000000000000000'
+	'700777700000000000000000000000'
+	'777700770000000000000000000000'
+	'007707707700000000000000000000'
+	'077700007700000000000000000000'
+	'000000700000000000000000000000'
+	'777000700000000000000000000000'
+	'007000700000000000000000000000'
+	'000007700000000000000000000000'
+]
+
+decals
+[
+	[ cav_hole_2 817 -350 ]
+	[ cav_hole_1 1055 -343 { mx=true } ]
+	[ fng_moldSpot_0 540 120 ]
+	[ fng_moldSpot_0 480 -60 ]
+	[ fng_moldSpot_0 930 -255 ]
+	[ fng_moldSpot_0 750 -195 ]
+	[ fng_moldSpot_0 780 0 ]
+	[ fng_moldSpot_0 690 -135 ]
+	[ fng_moldSpot_0 600 -270 ]
+	[ fng_moldSpot_1 840 -120 ]
+	[ slm_tendril_10 1506 -8 { mx=true } ]
+	[ slm_tendril_10 1410 45 { mx=true } ]
+	[ slm_tendril_6 1410 -66 ]
+	[ slm_tendril_6 1368 86 { mx=true } ]
+	[ slm_tendril_8 1406 95 ]
+	[ cmn_skeletons_2 823 122 ]
+	[ cmn_skeletons_1 511 -45 ]
+	[ fng_moldSpot_0 840 -180 ]
+	[ cav_lava_2 1050 345 ]
+	[ cav_lava_3 836 415 ]
+	[ cav_lava_4 1018 253 ]
+	[ cav_lava_6 780 330 ]
+	[ fng_moldSpot_0 1139 -253 ]
+	[ fng_moldSpot_0 714 -282 ]
+	[ fng_moldSpot_2 1278 -163 ]
+	[ fng_moldSpot_2 478 -151 ]
+	[ cmn_stain_2 1095 -139 ]
+	[ cmn_skeletons_2 1110 -45 ]
+	[ cmn_skeletons_1 1140 270 ]
+	[ min_sheer_4 1393 -128 ]
+]
+
+props
+{
+	cav_env_stalagm
+	[
+		[ 25 17 { id=prop_280 sm=3 } ]
+		[ 27 22 { id=prop_288 sm=5 } ]
+		[ 20 22 { id=prop_292 sm=7 } ]
+		[ 22 25 { id=prop_299 sm=13 } ]
+		[ 20 21 { id=prop_302 sm=15 } ]
+		[ 13 20 { id=prop_310 sm=3 } ]
+		[ 15 22 { id=prop_312 sm=4 } ]
+		[ 21 15 { id=prop_313 sm=4 } ]
+		[ 26 13 { id=prop_316 sm=6 } ]
+		[ 27 20 { id=prop_333 sm=2 } ]
+		[ 3 23 { id=prop_334 sm=2 } ]
+		[ 22 10 { id=prop_506 sm=5 } ]
+		[ 16 22 { id=prop_1578 sm=3 } ]
+		[ 17 24 { id=prop_1581 sm=5 } ]
+		[ 17 23 { id=prop_1586 sm=7 } ]
+		[ 23 20 { id=prop_1589 sm=9 } ]
+		[ 19 21 { id=prop_1592 sm=11 } ]
+		[ 18 21 { id=prop_1606 } ]
+		[ 20 15 { id=prop_1607 } ]
+		[ 14 29 { id=prop_2032 sm=6 } ]
+		[ 15 17 { id=prop_2054 sm=2 } ]
+		[ 25 13 { id=prop_2059 sm=5 } ]
+		[ 17 17 { id=prop_2061 sm=6 } ]
+		[ 23 13 { id=prop_2080 sm=2 } ]
+		[ 25 11 { id=prop_2082 sm=3 } ]
+		[ 24 16 { id=prop_2083 sm=3 } ]
+		[ 5 18 { id=prop_2256 sm=13 } ]
+		[ 9 23 { id=prop_2588 sm=17 } ]
+		[ 12 20 { id=prop_2596 sm=6 } ]
+		[ 12 19 { id=prop_2599 sm=8 } ]
+	]
+	cav_env_stalagmWebs
+	[
+		[ 14 6 { id=prop_96 sm=2 } ]
+		[ 8 6 { id=prop_98 sm=1 } ]
+		[ 8 13 { id=prop_99 sm=4 } ]
+		[ 16 6 { id=prop_100 sm=4 } ]
+		[ 14 11 { id=prop_101 sm=2 } ]
+		[ 13 11 { id=prop_102 } ]
+		[ 0 12 { id=prop_104 sm=2 } ]
+		[ 9 2 { id=prop_105 sm=5 } ]
+		[ 18 5 { id=prop_106 sm=2 } ]
+		[ 18 11 { id=prop_108 sm=3 } ]
+		[ 18 13 { id=prop_109 sm=5 } ]
+		[ 8 12 { id=prop_112 } ]
+		[ 14 4 { id=prop_113 sm=3 } ]
+		[ 12 6 { id=prop_116 sm=2 } ]
+		[ 9 8 { id=prop_117 } ]
+		[ 9 4 { id=prop_125 sm=3 } ]
+		[ 7 0 { id=prop_1791 sm=3 } ]
+		[ 15 4 { id=prop_1796 } ]
+		[ 14 2 { id=prop_2127 sm=3 } ]
+		[ 2 15 { id=prop_2130 sm=5 } ]
+	]
+	cav_misc_spideregg
+	[
+		[ 10 4 { id=prop_46 } ]
+		[ 16 11 { id=prop_127 } ]
+		[ 0 10 { id=prop_133 sm=5 } ]
+		[ 6 8 { id=prop_139 } ]
+	]
+	cav_env_pillar
+	[
+		[ 14 7 { id=prop_93 sm=6 } ]
+		[ 25 22 { id=prop_237 sm=2 } ]
+		[ 0 6 { id=prop_1557 sm=14 } ]
+		[ 7 4 { id=prop_1730 sm=7 } ]
+		[ 6 7 { id=prop_1734 sm=10 } ]
+		[ 22 26 { id=prop_1746 sm=3 } ]
+	]
+	slm_env_agave
+	[
+		[ 19 23 { id=prop_251 sm=3 } ]
+	]
+	cmn_bld_beamStation_1
+	[
+		[ 3 3 { id=prop_1706 HP=50 AV=3 } ]
+	]
+	cmn_bld_beamStation_0
+	[
+		[ 26 26 { id=prop_1708 HP=50 AV=3 } ]
+	]
+	min_bld_column
+	[
+		[ 24 0 { id=prop_1886 sm=7 } ]
+		[ 28 4 { id=prop_1893 sm=13 } ]
+	]
+	mld_env_fungusRound
+	[
+		[ 8 20 { id=prop_1914 } ]
+		[ 6 20 { id=prop_1916 sm=1 } ]
+		[ 6 19 { id=prop_1917 sm=5 } ]
+		[ 6 24 { id=prop_1918 sm=6 } ]
+		[ 0 20 { id=prop_1919 sm=5 } ]
+		[ 1 20 { id=prop_1920 sm=7 } ]
+		[ 0 19 { id=prop_1921 sm=1 } ]
+		[ 1 19 { id=prop_1922 sm=6 } ]
+		[ 5 20 { id=prop_1923 sm=7 } ]
+		[ 8 17 { id=prop_1925 sm=7 } ]
+		[ 7 21 { id=prop_1926 sm=6 } ]
+		[ 7 20 { id=prop_1928 sm=5 } ]
+		[ 10 17 { id=prop_1929 sm=4 } ]
+		[ 5 17 { id=prop_1938 sm=1 } ]
+		[ 6 17 { id=prop_1939 sm=5 } ]
+		[ 24 22 { id=prop_1940 sm=5 } ]
+		[ 12 14 { id=prop_1950 sm=4 } ]
+		[ 13 14 { id=prop_1951 } ]
+		[ 5 25 { id=prop_2503 sm=1 } ]
+	]
+	mld_env_fungusPointy
+	[
+		[ 10 29 { id=prop_1953 sm=3 } ]
+		[ 8 29 { id=prop_1954 sm=5 } ]
+		[ 0 22 { id=prop_1955 sm=4 } ]
+		[ 11 27 { id=prop_1956 } ]
+	]
+	mld_brk_fungus
+	[
+		[ 6 26 { id=prop_1958 } ]
+		[ 5 24 { id=prop_1959 sm=1 } ]
+	]
+	min_bld_sculpture
+	[
+		[ 19 8 { id=prop_1990 sm=1 } ]
+	]
+	cmn_brk_energyBarrel
+	[
+		[ 23 4 { id=prop_2015 sm=7 } ]
+		[ 27 5 { id=prop_2019 sm=1 } ]
+	]
+	min_misc_bones
+	[
+		[ 3 29 { id=prop_2524 sm=1 } ]
+		[ 3 28 { id=prop_2528 sm=4 } ]
+		[ 2 26 { id=prop_2531 sm=6 } ]
+		[ 0 28 { id=prop_2536 sm=10 } ]
+	]
+}
+
+items
+{
+	lootSpecial
+	[
+		[ 29 0 { id=item_1895 lootID = cerbrium_1 } ]
+		[ 0 29 { id=item_1899 lootID = cerbrium_1 } ]
+	]
+	lootSmall
+	[
+		[ 23 5 { id=item_1897 } ]
+		[ 0 0 { id=item_1901 } ]
+		[ 29 29 { id=item_1902 } ]
+		[ 7 24 { id=item_1903 } ]
+	]
+	lootBig
+	[
+		[ 14 15 { id=item_1905 } ]
+	]
+}
+
+chars
+{
+}
+
+markers
+{
+}
+
+regions
+{
+	spawn
+	[
+		{ loc=[ 24 26 24 27 ]  }
+		{ loc=[ 26 24 27 24 ]  }
+		{ loc=[ 2 5 3 5 ] index=1  }
+		{ loc=[ 5 2 5 3 ] index=1  }
+	]
+
+	other
+	[
+	]
+
+}
