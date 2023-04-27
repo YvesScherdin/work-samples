@@ -16,7 +16,7 @@ For my project, I decided to mix upper camel case and snake case for complex cla
 
 Now think of yourself searching for a specific AIAgent, and in the class search field you type "AIAgent_". Now the IDE auto-completion offers you all AIAgent-classes, not included potentially related classes like AIAgentSettings, AIAgentUtil, AIAgentExtensionsa and alike. This would be different if we had no underscore in the names to distinguish the sub variant. A class name AIAgentCitizen would be cluttered up with AIAgentUtil, whereas the citizen class would be a sub variant and the util would not.
 
-### Abbreviaions
+### Abbreviations
 
 Albeit it is considered a bad habit to make use of abbreviations in class names, I decided to abbreviate certain phrases which would elsewise lead to too long class names, worse readability and MUCH more typing effort.
 
