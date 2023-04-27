@@ -1,15 +1,15 @@
-package frea.website.utils;
-import frea.website.MainAPI;
-import frea.website.comps.topics.TopicID;
-import frea.core.data.EventData;
-import frea.core.data.EventType;
-import frea.core.queries.EventQuery;
-import frea.core.utils.DateUtil;
-import frea.core.utils.EventTypeUtil;
-import frea.core.utils.Loca;
-import frea.core.queries.EventQuery.EventFilter_Type;
-import frea.core.utils.TextUtil;
-import frea.core.utils.URLMap;
+package doodad.website.utils;
+import doodad.website.MainAPI;
+import doodad.website.comps.topics.TopicID;
+import doodad.core.data.EventData;
+import doodad.core.data.EventType;
+import doodad.core.queries.EventQuery;
+import doodad.core.utils.DateUtil;
+import doodad.core.utils.EventTypeUtil;
+import doodad.core.utils.Loca;
+import doodad.core.queries.EventQuery.EventFilter_Type;
+import doodad.core.utils.TextUtil;
+import doodad.core.utils.URLMap;
 import haxe.ds.StringMap;
 import js.Browser;
 import js.JQuery;
@@ -152,8 +152,8 @@ class NewsGenerator
 	
 	static private function fromEventShort(evt:EventData):String
 	{
-		if (evt.type == EventType.vigil)
-			return TextUtil.fromEventType(EventType.vigil) + " " + evt.city;
+		if (evt.type == EventType.exercise)
+			return TextUtil.fromEventType(EventType.exercise) + " " + evt.city;
 		else
 			return EventDataUtil.getTitle(evt);
 	}
@@ -264,9 +264,9 @@ class NewsGenerator
 		return event.beginTime >= today && event.beginTime < tomorrow && !event.nextDateIsPlanned;
 	}
 	
-	static private function isEventVigil(event:EventData):Bool
+	static private function isEventExercise(event:EventData):Bool
 	{
-		return event.type == EventType.vigil;
+		return event.type == EventType.exercise;
 	}
 	
 	static private function isEventFeatured(event:EventData):Bool
