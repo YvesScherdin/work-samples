@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace GataryLabs.Localization
 {
+    /// <summary>
+    /// Parses Language file. Its entries must meet following conditions:
+    /// - linear list of Key value pairs (KVP)
+    /// - Each Key is separated from its related value by '='
+    /// - Newline ('\n') separates KVPs from each other
+    /// </summary>
     static public class LanguageTableIO
     {
         private const char delimeterKeyValue = '=';
@@ -12,6 +18,12 @@ namespace GataryLabs.Localization
         private const string newLineReadReplacement = "☻";
         private const string newLineIndicator = "\\n";
 
+        /// <summary>
+        /// Reads raw string file and returns a string-to-string dictionary.
+        /// </summary>
+        /// <param name="rawContent"></param>
+        /// <param name="table"></param>
+        /// <param name="additive"></param>
         static public void Read(string rawContent, Dictionary<string, string> table, bool additive=false)
         {
             if(!additive)
@@ -56,6 +68,12 @@ namespace GataryLabs.Localization
         }
 
 #if UNITY_EDITOR
+        /// <summary>
+        /// Writes the table into a file.
+        /// Only available within editor.
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns></returns>
         static public string Write(Dictionary<string, string> table)
         {
             List<string> keys = new List<string>(table.Keys);
