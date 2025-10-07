@@ -9,9 +9,9 @@ The configuration would be done within UI. The composition is yet done in code.
 
 In the following screenshots you can see the configurable AI components, such as...
 
-- (Combat settings)[./Source/Data/AICombatSettings.cs]
-- (Action options)[./Source/Data/AIActionOption.cs]
-- (Additional modules)[./Source/Data/Modules]
+- [Combat settings](./Source/Data/AICombatSettings.cs)
+- [Action options](./Source/Data/AIActionOption.cs)
+- [Additional modules](./Source/Data/Modules)
 
 ![Image 1](./Images/AgentConfiguration_Mage_1.png)
 ![Image 2](./Images/AgentConfiguration_Mage_2.png)
