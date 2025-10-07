@@ -5,13 +5,14 @@ using MageGame.Behaviours.Ability;
 using MageGame.Behaviours.EntityType;
 using MageGame.Behaviours.EntityType.Furniture;
 using MageGame.Behaviours.Mechanisms;
-using MageGame.Core;
-using MageGame.Data;
-using MageGame.Data.Items;
-using MageGame.Data.Residences;
-using MageGame.Items;
+using MageGame.Core.Data;
+using MageGame.Items.Collections;
+using MageGame.Items.Data;
+using MageGame.Items.Utils;
+using MageGame.Mechanics.LootSystem.Utils;
 using MageGame.Utils;
 using MageGame.World.Data;
+using MageGame.World.Residences;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -143,7 +144,7 @@ namespace MageGame.AI.Agents.Default
             if (concreteParams.container == null)
             {
                 // just drop the items
-                List<CollectableItem> list = new List<CollectableItem>(ItemGenerator.ToCollectables(concreteParams.items));
+                List<CollectableItem> list = new List<CollectableItem>(LootItemGenerator.ToCollectables(concreteParams.items));
                 CollectableItemUtil.Arrange(list, agent.context.myObjectInfo.collider, EmitSpawnAreaType.Center, agent.transform.parent.gameObject);
 
                 bool persistent = WorldResidenceUtil.IsInOwnResidence();
@@ -155,18 +156,12 @@ namespace MageGame.AI.Agents.Default
             }
         }
 
-        public override void Exit()
+        public override void Leave()
         {
             if(context.movement.IsMoving())
                 context.movement.AbortMovement();
 
-            /*if (executionCoroutine != null)
-            {
-                agent.StopCoroutine(executionCoroutine);
-                executionCoroutine = null;
-            }
-*/
-            base.Exit();
+            base.Leave();
 
         }
     }
