@@ -3,9 +3,9 @@
 The following project contains work samples of an C# Unity AI system I wrote for [my Unity mage game](https://spiele-oder-so.de/mage-game.html).
 
 The intention was to create different agent behaviors by simply composing behaviour components (like sensors and skills).
-The configuration would be done within UI (see below). The composition is yet [done in code](./Source/Agents/Citizen/AIAgent_CartAnimal.cs).
+The configuration would be done within UI [^1]. The composition is yet [done in code](./Source/Agents/Citizen/AIAgent_CartAnimal.cs).
 
-### Action configuration
+[^1]: Action configuration
 
 In the following screenshots you can see the configurable AI components, such as...
 
