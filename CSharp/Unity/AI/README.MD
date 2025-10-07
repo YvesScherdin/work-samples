@@ -1,6 +1,7 @@
 # UNITY-Project - AI-System (work samples)
 
 The following project contains work samples of an C# Unity AI system I wrote for my Unity mage game[^1].
+It shall demonstrate my ability to solve problems. The **code style** follows my private Unity coding practices[^2], which are not representative for my overall skills.
 
 The intention was to create different agent behaviors by simply composing behaviour components (like sensors and skills).
 The configuration would be done [within UI (see below)](#action-configuration). The composition is yet [done in code](./Source/Agents/Citizen/AIAgent_CartAnimal.cs).
@@ -18,4 +19,8 @@ In the following screenshots you can see the configurable AI components, such as
 ![Image 1](./Images/AgentConfiguration_Mage_1.png)
 ![Image 2](./Images/AgentConfiguration_Mage_2.png)
 
+---- 
+##### Last Date of actualization: 2025-10-07
+
 [^1]: [Mage Trainee game website](https://spiele-oder-so.de/mage-game.html)
+[^2]: [My Unity Coding convention](../)
