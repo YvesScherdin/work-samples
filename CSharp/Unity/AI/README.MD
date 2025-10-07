@@ -23,4 +23,4 @@ In the following screenshots you can see the configurable AI components, such as
 ##### Last Date of actualization: 2025-10-07
 
 [^1]: [Mage Trainee game website](https://spiele-oder-so.de/mage-game.html)
-[^2]: [My Unity Coding convention](../)
+[^2]: [My Unity Coding convention](https://github.com/YvesScherdin/work-samples/tree/main/CSharp/Unity)
