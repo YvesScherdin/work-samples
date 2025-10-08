@@ -1,5 +1,7 @@
 # UNITY work samples
 
+### Solutions
+
 - [My AI-System (AI for NPCs in video games)](./AI/)
 
 > [!NOTE]
