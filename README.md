@@ -2,7 +2,7 @@
 
 Hello, dear visitor!
 
-In this project I compliled some work samples.
+In this repository I compiled some work samples.
 
 > [!NOTE]
 > And here are some additional code projects:
@@ -15,7 +15,7 @@ In this project I compliled some work samples.
 
 Hallo, werter Besucher!
 
-In diesem Projekt habe ich verschiedene Arbeitsproben zusammengetragen.
+In diesem Repositorium habe ich verschiedene Arbeitsproben zusammengetragen.
 
 > [!NOTE]
 > Und hier sind ein paar zusätzliche Programmierprojekte:

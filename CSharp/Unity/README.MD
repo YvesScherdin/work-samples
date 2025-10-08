@@ -1,5 +1,7 @@
 # UNITY work samples
 
+- [My AI-System (AI for NPCs in video games)](./AI/)
+
 > [!NOTE]
 > ### UNITY code design choices
 > 
