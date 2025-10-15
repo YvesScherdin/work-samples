@@ -1,4 +1,4 @@
-# Arbeitsproben (DEUTSCH)
+# Arbeitsproben
 
 Hallo, werter Besucher!
 
@@ -24,5 +24,5 @@ It contains partial code of some of my projects, which are private.
 
 However, I recommend also to take a look at some of my git projects, that are completely public:
 - [C# - Lightweight Dependency Injection Solution for use in Unity](https://github.com/YvesScherdin/GataryLabs.DependencyInjection)
-- [C#, WPF - A progra, to play and analyze SWF files](https://github.com/YvesScherdin/GataryLabs.SwfBox)
+- [C#, WPF - A program to play and analyze SWF files](https://github.com/YvesScherdin/GataryLabs.SwfBox)
 - [AS3/HaXe - YSON data format](https://github.com/YvesScherdin/YSON)
